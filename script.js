@@ -1,5 +1,5 @@
 const iva = 1.21;
-const opcionesMenu = () => {
+function opcionesMenu() {
     let opcionUsuario;
     let precioCosto;
     let precioVenta;
@@ -11,6 +11,7 @@ const opcionesMenu = () => {
     3 - Obtener precio sin IVA \n
     0 - Salir.`)
         );
+
         switch (opcionUsuario) {
             case 0:
                 alert("¡Gracias por utilizar el programa!");
@@ -18,7 +19,6 @@ const opcionesMenu = () => {
             case 1:
                 precioVenta = parseFloat(prompt("Ingrese el precio de venta:"));
                 precioCosto = parseFloat(prompt("Ingrese el precio de costo:"));
-
                 if (isNaN(precioVenta) || isNaN(precioCosto) || precioCosto <= 0) {
                     alert("Por favor, ingrese valores numéricos válidos.");
                 } else {
@@ -49,7 +49,7 @@ const opcionesMenu = () => {
                 break;
         }
     } while (opcionUsuario !== 0);
-};
+}
 opcionesMenu();
 
 // Calcula el porcentaje de ganancia de un producto
@@ -57,10 +57,12 @@ function calcularGanancia(precioVenta, precioCosto) {
     let ganancia = ((precioVenta - precioCosto) / precioCosto) * 100;
     return ganancia.toFixed(2);
 }
+// Devuelve el valor igresado por el usuario sumado el valor de iva
 function costoConIva(precioCosto) {
     let precioConIva = precioCosto * iva;
     return precioConIva.toFixed(2);
 }
+// Devuelve el valor igresado por el usuario descontando el valor de iva
 function costoSinIva(precioCosto) {
     let precioSinIva = precioCosto / iva;
     return precioSinIva.toFixed(2);
